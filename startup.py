@@ -119,6 +119,7 @@ def createsettingsjson(inv):
         outp.write("    Log_Level=\""+str(setts["Log_Level"])+"\"\n")
         outp.write("    Influx_Output="+str(setts["Influx_Output"]).capitalize()+"\n")
         outp.write("    influxURL=\""+str(setts["influxURL"])+"\"\n")
+        outp.write("    influxVerifySSL=\""+str(setts["influxVerifySSL"])+"\"\n")
         outp.write("    influxToken=\""+str(setts["influxToken"])+"\"\n")
         outp.write("    influxBucket=\""+str(setts["influxBucket"])+"\"\n")
         outp.write("    influxOrg=\""+str(setts["influxOrg"])+"\"\n")
@@ -483,6 +484,7 @@ if exists("/config/GivTCP/v2env.pkl") and v3upgrade:
     setts["day_rate_start"]=envs[0]["DAYRATESTART"]
     setts["night_rate_start"]=envs[0]["NIGHTRATESTART"]
     setts["influxURL"]=envs[0]["INFLUX_URL"]
+    setts["influxVerifySSL"]=envs[0]["INFLUX_VERIFY_SSL"]
     setts["influxToken"]=envs[0]["INFLUX_TOKEN"]
     setts["influxBucket"]=envs[0]["INFLUX_BUCKET"]
     setts["influxOrg"]=envs[0]["INFLUX_ORG"]

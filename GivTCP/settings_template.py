@@ -28,6 +28,7 @@ class GiV_Settings:
 # Influx Settings
     Influx_Output= False            #Optional - turns on Influx as a data publisher. True or False
     influxURL="http://IP:8086"      #Optional - URL of your influx instance
+    influxVerifySSL=True            #Optional - for HTTPS Influx connections, to verify the SSL certificate
     influxToken=""                  #Optional - Token for your influx instance
     influxBucket="GivEnergy"        #Optional - name of Bucket to put data into
     influxOrg="GivTCP"              #Optional - Influx Organisation to use

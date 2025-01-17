@@ -65,6 +65,7 @@ options:
   NIGHTRATESTART: "00:30"
   INFLUX_OUTPUT: False
   INFLUX_URL: ""
+  INFLUX_VERIFY_SSL: True
   INFLUX_TOKEN: ""
   INFLUX_BUCKET: ""
   INFLUX_ORG: ""
@@ -134,6 +135,7 @@ schema:
   NIGHTRATESTART: "str?"
   INFLUX_OUTPUT: bool
   INFLUX_URL: "str?"
+  INFLUX_VERIFY_SSL: "bool?"
   INFLUX_TOKEN: "str?"
   INFLUX_BUCKET: "str?"
   INFLUX_ORG: "str?"

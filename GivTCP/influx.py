@@ -63,7 +63,7 @@ class GivInflux():
         logging.debug("Data sending to Influx is: "+ output_str[:-1])
         data1=GivInflux.line_protocol(SN,output_str[:-1])
         
-        _db_client = InfluxDBClient(url=GiV_Settings.influxURL, token=GiV_Settings.influxToken, org=GiV_Settings.influxOrg, debug=True)
+        _db_client = InfluxDBClient(url=GiV_Settings.influxURL, token=GiV_Settings.influxToken, org=GiV_Settings.influxOrg, debug=True, verify_ssl=GiV_Settings.influxVerifySSL)
         _write_api = _db_client.write_api(write_options=WriteOptions(batch_size=1))
         _write_api.write(bucket=GiV_Settings.influxBucket, record=data1)
         logging.info("Written to InfluxDB")

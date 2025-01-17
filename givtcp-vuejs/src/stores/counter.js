@@ -50,6 +50,7 @@ export const useTcpStore = defineStore('givtcp-form', {
     influx: useSessionStorage('influx', {
       Influx_Output: false,
       influxURL: "",
+	  influxVerifySSL: true,
       influxToken: "",
       influxBucket: "",
       influxOrg: ""
@@ -423,7 +424,7 @@ export const useCard = defineStore('card', {
             key: 'influxURL',
             onChange: function(value, form) {
               // Enable or disable 'Verify SSL?' based on the URL value
-              const verifySSLField = form.fields.find(f => f.options.key === 'verifySSL');
+              const verifySSLField = form.fields.find(f => f.options.key === 'influxVerifySSL');
               if (verifySSLField) {
                 verifySSLField.options.disabled = !value.startsWith('https');
               }
@@ -435,7 +436,7 @@ export const useCard = defineStore('card', {
           options: {
             label: 'Verify SSL?',
             parent: 'influx',
-            key: 'verifySSL',
+            key: 'InfluxVerifySSL',
             disabled: true, // Initially disabled
             checked: true   // Checked by default
           }
