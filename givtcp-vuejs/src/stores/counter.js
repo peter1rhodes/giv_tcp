@@ -420,9 +420,26 @@ export const useCard = defineStore('card', {
           options: {
             label: 'URL',
             parent: 'influx',
-            key: 'influxURL'
+            key: 'influxURL',
+            onChange: function(value, form) {
+              // Enable or disable 'Verify SSL?' based on the URL value
+              const verifySSLField = form.fields.find(f => f.options.key === 'verifySSL');
+              if (verifySSLField) {
+                verifySSLField.options.disabled = !value.startsWith('https');
+              }
+            }
           }
         },
+        {
+          type: 'checkbox',
+          options: {
+            label: 'Verify SSL?',
+            parent: 'influx',
+            key: 'verifySSL',
+            disabled: true, // Initially disabled
+            checked: true   // Checked by default
+          }
+        }
         {
           type: 'text',
           options: {
@@ -446,9 +463,10 @@ export const useCard = defineStore('card', {
             parent: 'influx',
             key: 'influxOrg'
           }
-        }
+        },
       ]
     },
+
     tariffs: {
       title: 'Tariffs',
       subtitle: 'Setup your Tariffs',
